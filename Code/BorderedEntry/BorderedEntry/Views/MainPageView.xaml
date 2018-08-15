@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BorderedEntry.Views.MainPageView"
+             xmlns:Controls="clr-namespace:BorderedEntry.Controls"
+             Title="Bordered Entry">
+    <ContentPage.Content>
+        <StackLayout Spacing="0" Padding="20">
+            <!--This will take default Entry. It will vary as per device like android and iOS.-->
+            <Controls:Entry Placeholder="{Binding DefaultEntryPlaceHolder}" Margin="10,20"/>
+
+            <!--For Bordered entry you have to set properties as below.-->
+            <Controls:Entry Placeholder="{Binding BorderedEntryPlaceholder}" ShowBorder="True" IsCurvedCornersEnabled="False" BorderColor="Blue" Margin="10,20"/>
+
+            <!--For Cureved entry you have to set properties as below-->
+            <Controls:Entry Placeholder="{Binding CurvedBorderEntryPlaceholder}" ShowBorder="True" IsCurvedCornersEnabled="True" BorderColor="Purple" Margin="10,20">
+                <Controls:Entry.CornerRadius>
+                    <OnPlatform x:TypeArguments="x:Double" iOS="15" Android="25" />
+                </Controls:Entry.CornerRadius>
+            </Controls:Entry>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
